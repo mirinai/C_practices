@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main_1(void){
+int main(void){
   //3.거꾸로 출력
   int arr3[5],m=0;
   

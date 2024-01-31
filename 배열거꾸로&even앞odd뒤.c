@@ -23,7 +23,7 @@ int main(void){
   }
   
   printf("\n");
-  
+  //반복문을 for을 두개나 쓰고 if까지 써서 느림
   for (int i = 0; i < 5; i++) {
   	for (int j = i+1; j < 5; j++) {
   		if (arr3[i] < arr3[j]) {

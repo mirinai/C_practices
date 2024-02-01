@@ -1,26 +1,41 @@
 #include <stdio.h>//header file : 프로그램을 실행하면서 필요한 함수나 구조체 같이 현재 만들고 있는
 				  //파일과는 따로 코드가 구현되어있는 파일
 
-#include "test.h";//직접 만든 헤더파일 가져옴
+#include "test.h";//직접 만든 헤더파일에서 가져옴
 //example)
 //void add(int a, int b) {
 	//printf("a : %d, b : %d, a+b = %d\n", a, b, a + b);
 	//return 0;
 //}
-int add1(int a, int b, int c) {
+
+//함수의 선언 : 어떤 형태의 함수거 정의되었는지 알려주는 역할
+	// -> 함수의 형태를 선언하고 반환형, 함수이름, 매개변수에 대한 정보가 있음
+
+//함수의 정의 : 이 함수가 어떤 형태를 가졌고, 어떤 코드를 실행하는지 작성
+//(함수의 기능을 정의해서 반환형, 함수명, 매개변수, 몸체(실행되는 코드)를 포함)
+
+
+
+int add1(int a, int b, int c) {//매개변수 선언
 	return a + b + c;
 }
+void add2(void) {
+	printf("%d\n", 1+2+3);
+}
+int add3(int a, int c);//선언부
 
-
-
-int main(void) {
+int main_1(void) {
 
 	add(1, 2);//매개변수 : 2
-	add(4, 5, 6);//매개변수 : 3,리턴 : a+b+c
+	add1(4, 5, 6);//매개변수 : 3,리턴 : a+b+c
 
 
-	int result1 = add1(4, 5, 6);
+	int result1 = add1(4, 5, 6);//리턴값
+
 	printf("result1 : %d\n", result1);
+	add2();
+	printf("%d\n", add3(2, 3));
+
 	//함수 : 프로그래밍에서 함수는 특정작업을 수행하는 코드의 묶음 -> 기능
 		// -> 특정 작업을 나눠서 정의하고, 그것을 쓸 수 있게 해주는 개념
 
@@ -42,13 +57,10 @@ int main(void) {
 	//						여기서 쓰는 변수이름은 변수이름처럼 이름짓게 된다.
 	//함수의 기능 : 함수가 호출되었을 때 실행할 기능을 정의하는 부분
 
-	
-
-
-
-
-
 
 
 	return 0;
+}
+int add3(int a, int c) {
+	return a + c;
 }

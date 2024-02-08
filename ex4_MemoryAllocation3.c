@@ -24,16 +24,16 @@ int main(void) {
 	printf("\n");
 	printf("-------------------------\n");
 	printf("\n");
-	//1. Á¤¼ö¸¦ ¿ø¼Ò·Î ÇÏ´Â ¹è¿­À» µ¿ÀûÀ¸·Î ÇÒ´çÇÏ°í, ÇÒ´çÇÒ ¶§ sizeµµ ¹Þ¾Æ¼­ ÇÏ±â
-	//À¯Àú·ÎºÎÅÍ ÀÔ·Â¹ÞÀº ¼ýÀÚ¸¦ ¹è¿­¿¡ ÀúÀåÇÑ µÚ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥ ¸¸µé±â
+	//1. ì •ìˆ˜ë¥¼ ì›ì†Œë¡œ í•˜ëŠ” ë°°ì—´ì„ ë™ì ìœ¼ë¡œ í• ë‹¹í•˜ê³ , í• ë‹¹í•  ë•Œ sizeë„ ë°›ì•„ì„œ í•˜ê¸°
+	//ìœ ì €ë¡œë¶€í„° ìž…ë ¥ë°›ì€ ìˆ«ìžë¥¼ ë°°ì—´ì— ì €ìž¥í•œ ë’¤ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ ë§Œë“¤ê¸°
 	int* arr2;
 	int size2;
-	printf("ÀÔ·Â¹ÞÀ» ¼ýÀÚÀÇ ¼ö : ");
+	printf("ìž…ë ¥ë°›ì„ ìˆ«ìžì˜ ìˆ˜ : ");
 	scanf("%d", &size2);
 	arr2 = (int*)malloc(size2 * sizeof(int));
 	
 	for (int i = 0; i < size2; i++) {
-		printf("ÀÔ·Â¹ÞÀ» ¼ýÀÚ : ");
+		printf("ìž…ë ¥ë°›ì„ ìˆ«ìž : ");
 		scanf("%d", &arr2[i]);
 	}
 	for (int i = 0; i < size2; i++) {
@@ -46,32 +46,32 @@ int main(void) {
 
 	printf("\n");
 	printf("-------------------------\n");
-	//2. Student ±¸Á¶Ã¼¸¦ µ¿ÀûÀ¸·Î ÇÒ´çÇÏ°í »ç¿ëÀÚ·ÎºÎÅÍ °¢ ¸â¹öº¯¼öÀÇ °ªÀ» ÀÔ·Â ¹Þ¾Æ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ¸¸µé±â
-	//-> sizeof(±¸Á¶Ã¼ÀÌ¸§)
-	printf("ÀÔ·ÂÇÒ ±æÀÌ : ");
+	//2. Student êµ¬ì¡°ì²´ë¥¼ ë™ì ìœ¼ë¡œ í• ë‹¹í•˜ê³  ì‚¬ìš©ìžë¡œë¶€í„° ê° ë©¤ë²„ë³€ìˆ˜ì˜ ê°’ì„ ìž…ë ¥ ë°›ì•„ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ë§Œë“¤ê¸°
+	//-> sizeof(êµ¬ì¡°ì²´ì´ë¦„)
+	printf("ìž…ë ¥í•  ì‚¬ëžŒ ìˆ˜ : ");
 	scanf("%d", &size2);
 
 	Student* arr3;
 	arr3 = (Student*)malloc(size2 * sizeof(Student));
 	for (int i = 0; i < size2; i++) {
 		arr3[i].name = (char*)malloc(50 * sizeof(char));
-		printf("ÀÌ¸§ ÀÔ·Â ³ªÀÌ ÀÔ·Â(¶ç¾î¾²±â) : ");
-		scanf("%s %d", arr3->name,&arr3->age);
+		printf("ì´ë¦„ê³¼ ë‚˜ì´ ìž…ë ¥(ë„ì–´ì“°ê¸°) : ");
+		scanf("%s %d", arr3[i].name, &arr3[i].age);
 
 	}
 	printf("\n");
 	for (int i = 0; i < size2; i++) {
-		printf("ÀÌ¸§ : %s, ³ªÀÌ : %d\n", (*arr3).name, arr3->age);
+		printf("%d. ì´ë¦„ : %s, ë‚˜ì´ : %d\n", i+1,(*(arr3+i)).name, (*(arr3+i)).age);
 	}
 	free(arr3);
 
 
 
 
-	//3. ÀÔ·Â¹ÞÀº Á¤¼ön¿¡ 1ºÎÅÍ n±îÁöÀÇ Á¤¼ö¸¦ ¿ø¼Ò·Î °¡Áö´Â ¹è¿­À» µ¿Àû ÇÒ´çÇÏ°í Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ¸¸µé±â
+	//3. ìž…ë ¥ë°›ì€ ì •ìˆ˜nì— 1ë¶€í„° nê¹Œì§€ì˜ ì •ìˆ˜ë¥¼ ì›ì†Œë¡œ ê°€ì§€ëŠ” ë°°ì—´ì„ ë™ì  í• ë‹¹í•˜ê³  ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ë§Œë“¤ê¸°
 	int* arr4;
 	int n;
-	printf("1ºÎÅÍ Á¤¼ön±îÁö Ãâ·ÂÇÒ n ÀÔ·Â(±æÀÌÀÌ±âµµ ÇÔ) : ");
+	printf("1ë¶€í„° ì •ìˆ˜nê¹Œì§€ ì¶œë ¥í•  n ìž…ë ¥(ê¸¸ì´ì´ê¸°ë„ í•¨) : ");
 	scanf("%d", &n);
 	arr4 = (int*)malloc(n * sizeof(int));
 

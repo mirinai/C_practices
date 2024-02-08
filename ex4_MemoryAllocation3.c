@@ -53,8 +53,9 @@ int main(void) {
 
 	Student* arr3;
 	arr3 = (Student*)malloc(size2 * sizeof(Student));
+	//printf("Student의 크기 : %d\n", sizeof(Student));
 	for (int i = 0; i < size2; i++) {
-		arr3[i].name = (char*)malloc(50 * sizeof(char));
+		arr3[i].name = (char*)malloc(50 * sizeof(char));//구조체 안의 포인터 메모리 할당
 		printf("이름과 나이 입력(띄어쓰기) : ");
 		scanf("%s %d", arr3[i].name, &arr3[i].age);
 

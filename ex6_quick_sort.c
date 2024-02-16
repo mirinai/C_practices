@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-//ÄüÁ¤·Ä
-// - ÇÏ³ªÀÇ ¸®½ºÆ®¸¦ ÇÇ¹şÀÌ¶ó´Â ±âÁØ°ªÀ» Áß½ÉÀ¸·Î µÎ ºÎºĞÀ¸·Î ³ª´©°í, °¢ ºÎºĞÀ» Á¤·ÄÇØ ¸ğµç ¸®½ºÆ®¸¦ Á¤·ÄÇÏ´Â ¹æ¹ı
+//í€µì •ë ¬
+// - í•˜ë‚˜ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ í”¼ë²—ì´ë¼ëŠ” ê¸°ì¤€ê°’ì„ ì¤‘ì‹¬ìœ¼ë¡œ ë‘ ë¶€ë¶„ìœ¼ë¡œ ë‚˜ëˆ„ê³ , ê° ë¶€ë¶„ì„ ì •ë ¬í•´ ëª¨ë“  ë¦¬ìŠ¤íŠ¸ë¥¼ ì •ë ¬í•˜ëŠ” ë°©ë²•
 
-//1. ºĞÇÒ(Divide) : ¸®½ºÆ®
+//1. ë¶„í• (Divide) : ë¦¬ìŠ¤íŠ¸
 
 
 
@@ -19,6 +19,7 @@ void swap(int* a, int* b) {
 
 void printArray(int arr[], int size) {
 	for (int i = 0; i < size; i++) {
+
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
@@ -27,33 +28,42 @@ void printArray(int arr[], int size) {
 
 }
 
-//Äü Á¤·Ä ÇÔ¼ö
-void quickSor(int arr[], int left, int right) {//left, right -> °¡ÀåÀÚ¸® ÀÎµ¦½º
+//í€µ ì •ë ¬ í•¨ìˆ˜
+void quickSort(int arr[], int left, int right) {//left, right -> ê°€ì¥ìë¦¬ ì¸ë±ìŠ¤
 	int pl = left;
 	int pr = right;
-	int pivot = arr[(pl + pr) / 2];//±âÁØ
-	printf("pivot : %d\n", (pl + pr) / 2);
+	int pivot = arr[(pl + pr) / 2];//ê°€ìš´ë° ê°’ì„ í”¼ë´‡ìœ¼ë¡œ ì„¤ì •
+	int count = 0;
+
+	printf("---------------\n");
+	printf("pivot : %d\n\n", pivot);
+	printf("pl : %d, pr : %d\n", pl, pr);
+	printArray(arr, right + 1);
 
 	while (pl <= pr) {
 		while (arr[pl] < pivot) pl++;
 		while (arr[pr] > pivot) pr--;
-
+		count = count + 1;
+		printf("while(pl<=pr) count : %d\n", count);
+		printf("pl : %d, pr : %d\n", pl, pr);
 
 		if (pl <= pr) {
 			swap(&arr[pl], &arr[pr]);
 			pl++;
 			pr--;
 		}
-		printf("while µ¹¾Æ°¡°í ÀÖÀ½ pl : %d, pr : %d\n",pl,pr);
+		printf("while ëŒì•„ê°€ê³  ìˆìŒ pl : %d, pr : %d\n",pl,pr);
+		printf("\nwhile(pl<=pr)ì˜ ì•ˆ\n");
 		printArray(arr, right + 1);
 	}
+	printf("\nwhile(pl<=pr)ì˜ ë°–\n");
 	printArray(arr, right + 1);
-	if (left < pr) quickSor(arr, left, pr);//¹Ù²Ù±â
-	if (pl < right) quickSor(arr, pl, right);//
+	if (left < pr) quickSort(arr, left, pr);//ë°”ê¾¸ê¸°
+	if (pl < right) quickSort(arr, pl, right);//
 	
 }
 
-int main(void) {
+int main_6(void) {
 
 	int arr[] = { 30,50,40,10,20,60,80,70 };
 	int n = sizeof(arr) / sizeof(arr[0]);
@@ -61,7 +71,7 @@ int main(void) {
 	printf("original arr : \n");
 	printArray(arr, n);
 	
-	quickSor(arr, 0, n-1);
+	quickSort(arr, 0, n-1);
 
 	printf("sorted arr : \n");
 	printArray(arr, n);
